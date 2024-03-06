@@ -1,2 +1,26 @@
-<p>Hello world!</p>
+<div class="flex gap-2">
+    <p>Name: {{ user.name }}</p>
+    <p>Age: {{ user.age }}</p>
+</div>
+
+<div class="flex gap-2">
+    <span>One-way binding</span>
+    <input type="text" placeholder="Name" [value]="user.name" />
+    <input type="text" placeholder="Age" [value]="user.age" />
+</div>
+<br />
+
+<div class="flex gap-2">
+    <span>Two-way binding</span>
+    <input type="text" placeholder="Name" [(ngModel)]="user.name" />
+    <input type="text" placeholder="Age" [(ngModel)]="user.age" />
+</div>
+<br />
+
+<div class="flex gap-2">
+    <button (click)="handleClick()">Click me</button>
+    <span>Clicked: {{ clicked }}</span>
+</div>
+<br />
+
 <router-outlet></router-outlet>
