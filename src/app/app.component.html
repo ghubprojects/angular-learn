@@ -1,2 +1,31 @@
-<p>Hello world!</p>
+<h3>Hello {{ user.name }}</h3>
+
+<div class="flex gap-2">
+    <button (click)="decreaseAge()">-</button>
+    <span>Age: {{ user.age }}</span>
+    <button (click)="increaseAge()">+</button>
+</div>
+
+<p *ngIf="user.age < 18; else adultContent">You are too young to see this content</p>
+<ng-template #adultContent> <p>This is adult content!</p> </ng-template>
+
+<h3>User list</h3>
+<ul>
+    <li
+        *ngFor="
+            let user of userList;
+            index as idx;
+            count as total;
+            first as isFirst;
+            last as isLast;
+            even as isEven;
+            odd as isOdd
+        "
+    >
+        {{ idx }} of {{ total }} - {{ user.name }} - {{ user.age }}
+        <span>- I am {{ isEven ? 'even' : 'odd' }}</span>
+        <span *ngIf="isFirst"> - I am the first item</span>
+        <span *ngIf="isLast"> - I am the last item</span>
+    </li>
+</ul>
 <router-outlet></router-outlet>
