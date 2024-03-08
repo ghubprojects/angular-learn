@@ -1,0 +1,13 @@
+<div class="flex gap-4">
+    <span>ID: {{ id }}</span>
+    <div class="progress-wrapper" [style]="{ backgroundColor: bgColor }">
+        <div
+            class="progress grid place-items-center"
+            [style]="{ backgroundColor: progressColor, width: progress + '%' }"
+        >
+            {{ progress + '%' }}
+        </div>
+    </div>
+    <button (click)="select()">Select</button>
+    <button (click)="remove()">Remove</button>
+</div>

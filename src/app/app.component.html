@@ -1,2 +1,30 @@
 <p>Hello world!</p>
+<div class="flex flex-col gap-2 w-fit">
+    <app-progress-bar
+        *ngIf="!removedProgress.includes(1)"
+        [id]="1"
+        (selected)="handleSelectProgress($event)"
+        (removed)="handleRemoveProgress($event)"
+    ></app-progress-bar>
+
+    <app-progress-bar
+        *ngIf="!removedProgress.includes(2)"
+        [id]="2"
+        [progress]="currentProgress"
+        bg-color="dodgerblue"
+        (selected)="handleSelectProgress($event)"
+        (removed)="handleRemoveProgress($event)"
+    ></app-progress-bar>
+
+    <button
+        *ngIf="removedProgress.length < 2"
+        class="w-fit"
+        (click)="currentProgress = currentProgress + 1"
+    >
+        Increase progress
+    </button>
+
+    <span>Seleted progress: {{ selectedProgress }}</span>
+</div>
+
 <router-outlet></router-outlet>
