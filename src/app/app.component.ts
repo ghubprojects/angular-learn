@@ -10,4 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
     title = 'angular-learn';
+
+    isDanger = false;
+    isWarning = false;
 }
