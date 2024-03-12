@@ -10,4 +10,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ToggleComponent {
     @Input() checked = false;
     @Output() checkedChange = new EventEmitter();
+
+    toggle() {
+        this.checkedChange.emit(!this.checked);
+    }
 }
