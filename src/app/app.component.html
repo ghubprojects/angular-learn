@@ -1,2 +1,10 @@
-<p>Hello world!</p>
+<p>Hello {{ name }}!</p>
+
+<input type="text" [(ngModel)]="name" />
+<input type="text" [ngModel]="name" (ngModelChange)="name = $event" />
+<br />
+<br />
+
+<app-toggle [(checked)]="isChecked"></app-toggle>
+
 <router-outlet></router-outlet>
