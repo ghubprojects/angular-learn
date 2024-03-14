@@ -2,24 +2,20 @@
 
 <div class="flex gap-4">
     <app-card>
-        <ng-container ngProjectAs="span">Angular 1</ng-container>
-        <button>Click</button>
-        <img
-            src="https://imagekit.io/blog/content/images/2020/06/angular-logo.png"
-            height="120"
-            class="rounded-lg"
-        />
-    </app-card>
-    <app-card>
-        <img
-            src="https://imagekit.io/blog/content/images/2020/06/angular-logo.png"
-            height="120"
-            class="rounded-lg"
-        />
-        <span>Angular 2</span>
-        <button>Click</button>
+        <ng-container *ngTemplateOutlet="defaultTemplate; context: myContext" ngProjectAs="span">
+        </ng-container>
+        <ng-container *ngTemplateOutlet="customTemplate; context: myContext" ngProjectAs="span">
+        </ng-container>
         <button>Click</button>
     </app-card>
 </div>
+
+<ng-template #defaultTemplate let-txt>
+    <span>{{ txt }}</span>
+</ng-template>
+
+<ng-template #customTemplate let-txt="myText">
+    <span>{{ txt }}</span>
+</ng-template>
 
 <router-outlet></router-outlet>

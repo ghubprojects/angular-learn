@@ -1,10 +1,4 @@
-<div class="p-4 bg-gray-400 rounded-xl flex flex-col gap-4">
-    <div class="image">
-        <ng-content select="img"></ng-content>
-    </div>
-
-    <div class="flex justify-between">
-        <ng-content select="span"></ng-content>
-        <ng-content select="button"></ng-content>
-    </div>
+<div class="p-4 bg-gray-400 rounded-xl flex gap-2">
+    <ng-content select="span"></ng-content>
+    <ng-content select="button"></ng-content>
 </div>
