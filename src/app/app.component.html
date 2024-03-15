@@ -1,2 +1,9 @@
 <p>Hello world!</p>
+
+<app-tab-group [(activeIndex)]="currentIndex">
+    <app-tab-panel title="Tab 1">Tab 1 content</app-tab-panel>
+    <app-tab-panel title="Tab 2">Tab 2 content</app-tab-panel>
+    <app-tab-panel title="Tab 3">Tab 3 content</app-tab-panel>
+</app-tab-group>
+
 <router-outlet></router-outlet>
