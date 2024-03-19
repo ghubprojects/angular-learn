@@ -1,2 +1,54 @@
 <p>Hello world!</p>
+
+<div>
+    <h3>Date pipe</h3>
+    <p>{{ nowTime | date }}</p>
+    <p>{{ nowTime | date : 'shortDate' }}</p>
+    <p>{{ nowTime | date : 'mediumDate' }}</p>
+    <p>{{ nowTime | date : 'fullDate' }}</p>
+    <p>{{ nowTime | date : 'dd/MM/yyyy' }}</p>
+    <p>{{ nowTime | date : 'dd/MM/yyyy' }}</p>
+</div>
+
+<div>
+    <h3>String pipe</h3>
+    <p>{{ 'anGuLar' }}</p>
+    <p>{{ 'anGuLar' | lowercase }}</p>
+    <p>{{ 'anGuLar' | titlecase }}</p>
+    <p>{{ 'anGuLar' | uppercase }}</p>
+</div>
+
+<div>
+    <h3>Currency pipe</h3>
+    <p>{{ 10000 | currency }}</p>
+    <p>{{ 10000 | currency : 'VND' }}</p>
+</div>
+
+<div>
+    <h3>Number pipe</h3>
+    <p>{{ 3.14159265 | number }}</p>
+    <p>{{ 3.14159265 | number : '1.1-5' }}</p>
+    <p>{{ 0.314159265 | percent }}</p>
+</div>
+
+<div>
+    <h3>Json pipe</h3>
+    <p>{{ user }}</p>
+    <p>{{ user | json }}</p>
+</div>
+
+<div>
+    <h3>Async pipe</h3>
+    <p>{{ interval$ | async }}</p>
+</div>
+
+<div>
+    <h3>Custom pipe</h3>
+    <p>{{ myAddress | address }}</p>
+    <b>User list</b>
+    <ul class="px-5">
+        <li *ngFor="let user of userList | adult">{{ user.name }} - {{ user.age }}</li>
+    </ul>
+</div>
+
 <router-outlet></router-outlet>
