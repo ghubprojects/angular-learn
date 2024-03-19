@@ -1,6 +1,6 @@
 <ul class="flex flex-wrap">
     <li
-        class="mr-2 mb-2"
+        class="mr-2 mb-2 cursor-pointer"
         *ngFor="let tab of tabPanelList; index as idx"
         (click)="activeIndexChange.emit(idx)"
     >
@@ -17,5 +17,5 @@
 </ul>
 
 <div *ngIf="tabPanelList.length" class="tab-body">
-    <ng-container *ngTemplateOutlet="tabPanelList[activeIndex].panelBody"></ng-container>
+    <ng-container *ngTemplateOutlet="tabPanelList[activeIndex].contentBody"></ng-container>
 </div>

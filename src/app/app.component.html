@@ -1,9 +1,23 @@
 <p>Hello world!</p>
 
+<button
+    class="py-2 px-4 rounded-md cursor-pointer bg-green-600 text-white border-none"
+    (click)="showTab3 = !showTab3"
+>
+    Show tab 3
+</button>
+
 <app-tab-group [(activeIndex)]="currentIndex">
-    <app-tab-panel title="Tab 1">Tab 1 content</app-tab-panel>
-    <app-tab-panel title="Tab 2">Tab 2 content</app-tab-panel>
-    <app-tab-panel title="Tab 3">Tab 3 content</app-tab-panel>
+    <app-tab-panel title="Tab 1">
+        <!-- using ng template with specified directive to lazy loading -->
+        <ng-template tabContent>Tab 1 content <app-counter></app-counter></ng-template>
+    </app-tab-panel>
+    <app-tab-panel title="Tab 2">
+        <ng-template tabContent>Tab 2 content <app-counter></app-counter></ng-template>
+    </app-tab-panel>
+    <app-tab-panel title="Tab 3" *ngIf="showTab3">
+        <ng-template tabContent>Tab 3 content <app-counter></app-counter></ng-template>
+    </app-tab-panel>
 </app-tab-group>
 
 <router-outlet></router-outlet>

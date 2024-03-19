@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, Input, Output, QueryList } from '@angular/core';
 import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +13,11 @@ export class TabGroupComponent {
     tabPanelList: TabPanelComponent[] = [];
     @Input() activeIndex = 0;
     @Output() activeIndexChange = new EventEmitter<number>();
+    @ContentChildren(TabPanelComponent) tabPanels!: QueryList<TabPanelComponent>;
+
+    ngAfterContentInit(): void {
+        this.tabPanels.changes.subscribe();
+    }
 
     addTab(tab: TabPanelComponent) {
         this.tabPanelList.push(tab);

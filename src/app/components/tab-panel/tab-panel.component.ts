@@ -1,4 +1,12 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+    Component,
+    ContentChild,
+    Input,
+    OnDestroy,
+    OnInit,
+    TemplateRef
+} from '@angular/core';
+import { TabContentDirective } from '../../directives/tab-content.directive';
 import { TabGroupComponent } from '../tab-group/tab-group.component';
 
 @Component({
@@ -8,14 +16,19 @@ import { TabGroupComponent } from '../tab-group/tab-group.component';
     templateUrl: './tab-panel.component.html',
     styleUrl: './tab-panel.component.scss',
 })
-export class TabPanelComponent implements OnInit {
+export class TabPanelComponent implements OnInit, OnDestroy {
     @Input() title!: string;
-    @ViewChild(TemplateRef, { static: true }) panelBody!: TemplateRef<unknown>;
+    @ContentChild(TabContentDirective, { static: true, read: TemplateRef })
+    contentBody!: TemplateRef<unknown>;
 
     // dependency injection
     constructor(private tabGroup: TabGroupComponent) {}
 
     ngOnInit(): void {
         this.tabGroup.addTab(this);
+    }
+
+    ngOnDestroy(): void {
+        this.tabGroup.removeTab(this);
     }
 }
