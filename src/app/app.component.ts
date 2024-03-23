@@ -13,8 +13,6 @@ import {
     interval,
     last,
     map,
-    Observable,
-    pluck,
     sampleTime,
     single,
     skip,
