@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { buffer, bufferTime, from, fromEvent, interval, map, of, reduce, scan, toArray } from 'rxjs';
 
-const users = [
-    { id: 1, username: 'Arin Jerry', firstname: 'Arin', lastname: 'Jerry', salary: 1000 },
-    { id: 2, username: 'Fran Marley', firstname: 'Fran', lastname: 'Marley', salary: 2000 },
-    { id: 3, username: 'John Doe', firstname: 'John', lastname: 'Doe', salary: 3000 },
-];
-
 const observer = {
     next: (value: any) => console.log(value),
     error: (error: any) => console.error(error),
     complete: () => console.log('completed'),
 };
+
+const users = [
+    { id: 1, username: 'Arin Jerry', firstname: 'Arin', lastname: 'Jerry', salary: 1000 },
+    { id: 2, username: 'Fran Marley', firstname: 'Fran', lastname: 'Marley', salary: 2000 },
+    { id: 3, username: 'John Doe', firstname: 'John', lastname: 'Doe', salary: 3000 },
+];
 
 /* how to run: call method subscribe(observer) */
 
