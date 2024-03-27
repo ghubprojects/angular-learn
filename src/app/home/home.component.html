@@ -1,0 +1,8 @@
+<ul class="p-0">
+    <li *ngFor="let article of articles$ | async" class="p-4 my-2 bg-slate-300 list-none">
+        <b>{{ article.title }}</b>
+        <br />
+        <a [routerLink]="['/detail', article.slug]" href="">Read more</a>
+    </li>
+</ul>
+<router-outlet></router-outlet>
