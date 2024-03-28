@@ -1,8 +1,13 @@
 <ul class="p-0">
-    <li *ngFor="let article of articles$ | async" class="p-4 my-2 bg-slate-300 list-none">
+    <li
+        *ngFor="let article of articles$ | async"
+        class="p-4 my-2 bg-slate-300 list-none flex justify-between"
+        style="width: 50%"
+    >
         <b>{{ article.title }}</b>
-        <br />
-        <a [routerLink]="article.slug" href="">Read more</a>
+        <div>
+            <a [routerLink]="article.slug" class="px-2">Read more</a>
+            <a [routerLink]="['/articles', article.slug, 'edit']" class="px-2">Edit</a>
+        </div>
     </li>
 </ul>
-<router-outlet></router-outlet>
